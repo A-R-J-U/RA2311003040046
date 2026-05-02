@@ -4,7 +4,7 @@ import { useEffect,useState } from "react";
 
 const App = () => {
 
-  const [notiData, setNotiData] = useState<Array<object>>([]);
+  const [notiData, setNotiData] = useState<Array<any>>([]);
 
   useEffect(() => {
     const request = async () => {
@@ -26,9 +26,8 @@ const App = () => {
      res.json().then((data) => {
         const token = data.access_token;
         noti(token, 10, 1, "Result").then((data) => {
-          const notifications = data.notifications;
-          setNotiData(notifications);
-          console.log(notiData);
+          setNotiData(data.notifications);
+          console.log(data.notifications);
         })
       });
     };
@@ -47,8 +46,8 @@ const App = () => {
       {
         notiData ? notiData.map((noti : any, key:any) => {
           return <div className="noti" key={key}>
-            <h2>{noti.title}</h2>
-            <p>{noti.description}</p>
+            <h2>{noti.Message}</h2>
+            <p>{noti.Type}</p>
           </div>
         }) : <p>Loading...</p>
       }
