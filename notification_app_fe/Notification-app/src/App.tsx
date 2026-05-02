@@ -48,6 +48,7 @@ const App = () => {
           return <div className="noti" key={key}>
             <h2>{noti.Message}</h2>
             <p>{noti.Type}</p>
+            <p>{noti.Timestamp}</p>
           </div>
         }) : <p>Loading...</p>
       }

@@ -10,6 +10,7 @@ export const noti = async (token : string , limit :Number , page:Number , type: 
     },
   );
 
-
   return res.json();
+
+  
 };
